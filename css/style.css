@@ -1,0 +1,927 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap');
+
+    :root{
+        --font-family: 'Merriweather', serif;
+    }
+    body{
+        background: url("../img/bodybg.png") center no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+    }
+  /* navigation bar and banner */
+  #navigation{
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+}
+#navigation .logoBox{
+    height: 70px;
+    width: 150px;
+    background-image: url("../img/logo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.navbar{
+    padding: 20px 0;
+    transition: all 0.3s ease;
+}
+.navbar-brand{
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 2em;
+    color: #262626;
+}
+.nav-item{
+    font-family: var(--font-family);
+    font-weight: 500;
+    text-transform: capitalize;
+    font-size: 20px;
+}
+.navbar-nav .nav-item:hover .nav-link,
+.navbar-nav .nav-item.active .nav-link{
+    border-bottom: 2px solid #212f52;
+    /* color: #000; */
+}
+.navbar-nav .nav-item .nav-link{
+    color: #262626;
+    padding: 5px 15px;
+}
+.navbar .navbar-toggler{
+    border: none;
+    color: #fff;
+    border: 2px solid #7f7f7f;
+    border-radius: none;
+    outline: none;
+}
+
+
+
+@media all and (min-width: 992px) {
+	.navbar .nav-item .dropdown-menu{ display: none; }
+
+	.navbar .nav-item:hover .dropdown-menu{ display: block; }
+	.navbar .nav-item .dropdown-menu{ margin-top:0; }
+}
+@media (max-width: 800px) {
+    .navbar{
+        background:rgba(255,255,255,0.7);
+    }
+    .navbar-nav .nav-item .nav-link{
+        font-weight: bolder;
+    }
+}
+
+/* End NavBar */
+/* Carousel */
+#home .carousel-item{
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+}
+#home .carousel-item:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(255, 255, 255, .6); */
+    z-index: -1;
+}
+#home .carousel-item .container{
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%, -25%);
+    text-align: center;
+}
+#home .carousel-item h1{
+    font-family: var(--font-family);
+    font-size: 80px;
+    color: #000;
+    background-color: rgba(255, 255, 255, .6); 
+    margin: 0 0 10px;
+    opacity: 0;
+}
+#home .carousel-item p{
+    font-size: 30px;
+    color: #242222;
+    background-color: rgba(255, 255, 255, .6); 
+    margin: 0;
+    opacity: 0;
+}
+#home .carousel-item.active h1{
+    animation: fadeInLeft 0.5s ease forwards;
+    
+}
+#home .carousel-item.active p{
+    animation: fadeInRight 0.5s ease forwards;
+}
+@keyframes fadeInLeft{
+    0%{
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+@keyframes fadeInRight{
+    0%{
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+#home .carousel-controls{
+ position: absolute;
+ left: 50%;
+ bottom: 40px;
+ z-index: 2;
+ transform: translateX(-50%);
+}
+#home .carousel-indicators{
+  position: relative;
+  margin: 0;
+}
+#home .carousel-indicators button{
+  height: 70px;
+  width: 70px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-position: center;
+  background-size: cover;
+  border: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+#home .carousel-indicators button.active{
+  border-color: #fff;
+  transform: scale(1.2);
+}
+#home .carousel-control-next,
+#home .carousel-control-prev{
+  height: 60px;
+  width: 60px;
+  opacity: 1;
+  z-index: 3;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+#home .carousel-control-next:hover,
+#home .carousel-control-prev:hover{
+  box-shadow: 0 0 10px #fff;
+}
+#home .carousel-control-next{
+  right: -90px;
+}
+#home .carousel-control-prev{
+  left: -90px;
+}
+/* responsive */
+@media(max-width: 767px){
+  #home .carousel-control-next,
+  #home .carousel-control-prev{
+    display: none;
+  }
+  #home .carousel-indicators button{
+   height: 50px;
+   width: 50px; 
+  }
+  #home .carousel-item h1{
+    font-size: 45px;
+  }
+  #home .carousel-item p{
+    font-size: 22px;
+  }
+}
+
+/* end Carousel */
+
+/* brief intro */
+#aboutUs{
+    /* height: 100vh; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-image: url("../img/virusBg.png"); */
+    background-attachment: fixed;
+    background-size: fill;
+}
+#aboutUs .about-section{
+    top: 0;
+    width: 100%;
+    background: url("../img/bg2.png") no-repeat left;
+    background-size: 65%;
+    overflow: hidden;
+    padding: 100px 0;
+}
+#aboutUs .inner-container{
+    width: 55%;
+    float: right;
+    background-color: #fdfdfd;
+    padding: 150px;
+}
+#aboutUs .inner-container h1{
+    margin-bottom: 30px;
+    font-family: var(--font-family);
+    font-size: 30px;
+    font-weight: 900;
+}
+#aboutUs .text{
+    font-family: var(--font-family);
+    font-size: 16px;
+    color: #545454;
+    line-height: 30px;
+    text-align: justify;
+    margin-bottom: 40px;
+}
+#aboutUs .skills{
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+}
+#aboutUs .btnRM{
+    display: inline-block;
+    margin: 1em 0 0;
+    background:#ff2670;
+    color: #fff;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border: none;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+@media screen and (max-width:1200px) {
+    #aboutUs .inner-container{
+        padding: 80px;
+    }
+}
+@media screen and (max-width:1000px) {
+    #aboutUs .about-section{
+        background-size: 100%;
+        padding: 100px 40px;
+    }
+    #aboutUs .inner-container{
+        width: 100%;
+    }
+}
+@media screen and (max-width:600px) {
+    #aboutUs .about-section{
+       padding: 0;
+    }
+    #aboutUs .inner-container{
+        padding: 60px;
+        background: url("../img/bg1.jpg") no-repeat center;
+    }
+    #aboutUs .inner-container h1{
+        color: #fff;
+    }
+    #aboutUs .text{
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 15px;
+    }
+    #aboutUs .skills{
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 15px;
+        flex-direction: column;
+    }
+}
+
+/* End brief intro */
+
+.section-title{
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-family);
+    color: #fff;
+  }
+  
+/* Projects Section */
+#projects{
+    margin-bottom: 20px;
+    padding: 40px 30px;
+    background: url("https://img.freepik.com/free-photo/beautiful-view-construction-site-city-during-sunset_181624-9347.jpg?size=626&ext=jpg&ga=GA1.1.1573178064.1658172186&semt=robertav1_2_sidr") no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+#projects .single-box{
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: rgba(237, 33, 33, 0.5);
+    margin-bottom: 25px;
+}
+#projects .info-area{
+    padding: 0 20px 45px;
+}
+#projects .img-area{
+    overflow: hidden;
+    padding: 15px 0 15px;
+    height: 150px;
+}
+#projects .img-area img{
+    margin: 0 auto;
+    transition: all 0.5s ease;
+    max-width: 230px;
+    object-fit: contain;
+}
+#projects .single-box:hover img{
+    transform: scale(1.1);
+}
+#projects .info-area h4{
+    margin: 10px;
+    font-family: var(--font-family);
+    font-weight: 600;
+    color: #fff;
+}
+#projects .info-area p{
+    font-family: var(--font-family);
+    font-weight: 300;
+    color: #fff;
+}
+#projects .info-area a{
+    font-family: var(--font-family);
+    display: inline-block;
+    margin: 25px 0 0;
+    background-color: #fa1313;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 35px;
+    border-radius: 4px;
+}
+.team-slider .owl-dots{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -20px;
+    text-align: center;
+    width: 100%;
+}
+.team-slider button.owl-dot{
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin: 0 6px;
+    text-align: center;
+    background-color: #262626 !important;
+    border-radius: 50%;
+}
+
+.team-slider button.owl-dot.active{
+    background-color: #fa1313 !important;
+}
+
+/* End Projects Section */
+
+/* Contact Section */
+#contactUs{
+    background: linear-gradient(rgba(5, 1, 27, .2), rgba(0, 6, 61, .2)), url("../img/bg.jpeg") no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 15px;
+}
+#contactUs .card{
+    background: rgba(255, 255, 225, .2);
+    backdrop-filter: blur(5px);
+    transition: transform 500ms ease;
+    color: #fff;
+    transform: translateY(5%);
+}
+
+#contactUs .card .map{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 100%;    
+}
+#contactUs .card .map iframe{
+    width: 100%;
+    object-fit: contain;
+}
+/* End Contact us */
+
+#cusfoot{
+    display: flex;
+    background: linear-gradient(to right, #05011b 50%, #00063d);
+    font-family: var(--font-family);
+    color: #fff;
+    padding:12px;
+    bottom: 0;
+    height: 50px;
+    text-align: center;
+    justify-content: center;
+  }
+  
+
+
+  /* About Page */
+
+
+  /* about page */
+  #banner .about{
+    position: relative;
+    background-image: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6));
+    background-size: cover;
+    background-attachment: fixed;
+    height: 50vh;
+    overflow: hidden;
+  }
+
+
+  #banner .container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  #banner .container h1{
+    font-family: var(--font-family);
+    margin: 0;
+    font-size: 66px;
+    color: #63696b;
+    text-transform: capitalize;
+  }
+
+  #banner .container h1 span{
+    border-bottom: 6px solid #63696b;
+    padding: 6px 14px;
+    display: inline-block;
+  }
+
+  #banner .cen{
+    margin: 20px;
+    display: block;
+    font-size: 22px;
+  }
+
+  #banner .button{
+    color: #313131;
+    padding: 10px 24px;
+    background: #f1f1f1;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: .6s;
+  }
+  #banner .button:hover{
+    opacity: .6;
+  }
+  @media screen and (max-width: 625px) {
+    #banner .container h1{
+        font-family: healthyAfrica;
+        margin: 0;
+        font-size: 48px;
+      }
+  }
+  @media screen and (max-width: 300px) {
+    #banner .container h1{
+        font-family: healthyAfrica;
+        margin: 0;
+        font-size: 30px;
+      }
+  }
+
+  #simbaDev{
+    /* height: 100vh; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#simbaDev .about-section{
+    top: 0;
+    width: 100%;
+    background: url("../img/bg2.png") no-repeat left;
+    background-size: 45%;
+    /* background-color: #f1f1f1; */
+    overflow: hidden;
+    padding: 100px 0;
+
+}
+#simbaDev .inner-container{
+    width: 65%;
+    float: right;
+    background-color: #fdfdfd;
+    padding: 150px;
+}
+#simbaDev .inner-container h1{
+    margin-bottom: 30px;
+    font-family: var(--font-family);
+    font-size: 30px;
+    font-weight: 900;
+}
+#simbaDev .text{
+    font-family: var(--font-family);
+    font-size: 13px;
+    color: #545454;
+    line-height: 30px;
+    text-align: justify;
+    margin-bottom: 40px;
+}
+
+@media screen and (max-width:1200px) {
+    #simbaDev .inner-container{
+        padding: 80px;
+    }
+}
+@media screen and (max-width:1000px) {
+    #simbaDev .about-section{
+        background-size: 100%;
+        padding: 100px 40px;
+    }
+    #simbaDev .inner-container{
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+    }
+    #simbaDev .text{
+        color: #fff;
+    }
+}
+@media screen and (max-width:600px) {
+    #simbaDev .about-section{
+       padding: 0;
+    }
+    #simbaDev .inner-container{
+        padding: 60px;
+        background: url("https://www.simbadevelopers.co.tz/img/CA_TZ.png") no-repeat center;
+        background-size: contain;
+    }
+    #simbaDev .text{
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 15px;
+        width: 100%;
+    }
+}
+
+#africab{
+    /* height: 100vh; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../img/bg.jpeg");
+    background-attachment: fixed;
+    background-size: cover;
+}
+#africab .about-section{
+    top: 0;
+    width: 100%;
+    background: url("../img/AfricabInititaive2.png") no-repeat right;
+    background-size: 45%;
+    /* background-color: #f1f1f1; */
+    overflow: hidden;
+    padding: 100px 0;
+
+}
+#africab .inner-container{
+    width: 55%;
+    float: left;
+    background-color: #fdfdfd;
+    padding: 150px;
+}
+#africab .inner-container h1{
+    font-family: var(--font-family);
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: 900;
+}
+#africab .text{
+    font-family: var(--font-family);
+    font-size: 13px;
+    color: #545454;
+    line-height: 30px;
+    text-align: justify;
+    margin-bottom: 40px;
+}
+
+@media screen and (max-width:1200px) {
+    #africab .inner-container{
+        padding: 80px;
+    }
+}
+@media screen and (max-width:1000px) {
+    #africab .about-section{
+        background-size: 100%;
+        padding: 100px 40px;
+    }
+    #africab .inner-container{
+        width: 100%;
+        background-color: rgba(0,0,0,0.5);
+        color: #fff;
+    }
+    #africab .text{
+        color: #fff;
+    }
+}
+@media screen and (max-width:600px) {
+    #africab .about-section{
+       padding: 0;
+    }
+    #africab .inner-container{
+        padding: 60px;
+        background: url("https://www.simbadevelopers.co.tz/img/AfricabInitiative2.png") no-repeat center;
+        background-size: contain;
+    }
+    #africab .text{
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 15px;
+        width: 100%;
+    }
+}
+
+
+#chairman{
+    /* height: 100vh; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#chairman .imgBox{
+    max-width: 100%;
+    max-height: 100%;
+}
+#chairman .imgBox img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#chairman h1{
+    margin-bottom: 30px;
+    font-family: var(--font-family);
+    font-size: 30px;
+    font-weight: 900;
+}
+#chairman h2{
+    margin-bottom: 30px;
+    font-family: var(--font-family);
+    font-size: 20px;
+    font-weight: 600;
+    color: #ff0000;
+}
+#chairman .text{
+    font-family: var(--font-family);
+    font-size: 13px;
+    color: #545454;
+    line-height: 30px;
+    text-align: justify;
+    margin-bottom: 40px;
+}
+
+
+
+#statements{
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("https://img.freepik.com/free-photo/construction-site-silhouettes_1127-3253.jpg?size=626&ext=jpg&ga=GA1.1.1573178064.1658172186&semt=robertav1_2_sidr");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #fff !important;
+    margin: 0 0 20px;
+}
+#statements .title{
+    margin: 90px auto;
+    text-align: center;
+
+}
+#statements .title h1{
+    letter-spacing: 1px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+#statements .title h1::after{
+    content: '';
+    background: #fff;
+    display: block;
+    width: 150px;
+    height: 3px;
+    margin: 10px auto;
+}
+#statements .icon{
+    font-size: 40px;
+    margin: 20px auto;
+    padding: 20px;
+    height: 80px;
+    width: 80px;
+    /* border: 1px solid white; */
+    border-radius: 50%;
+}
+#statements .col-lg-4:hover{
+    box-shadow: 5px 7px 9px -3px rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+#statements .text{
+    font-family: 'Source Sans Pro', sans-serif;
+    line-height: 30px;
+    text-align: justify;
+}
+
+#gallery{
+    padding: 1.5rem;
+    background:  linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6));
+}
+.buttons{
+    padding: 2em 0 6em 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.buttons button{
+    margin: 1em;
+    padding: 0.7em 1.5em;
+    font-size: 1.1em;
+    border: 2px solid #000;
+    background-color: #ff0000;
+    color: #fff;
+    border-radius: .5em;
+    cursor: pointer;
+    transition: .3s;
+    box-shadow: 2px 3px rgba(0, 0, 0, 0.5);
+}
+
+.albumCovers{
+    max-width: 1360px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2em;
+}
+
+.albumCovers .albumCover{
+    max-width: 25em;
+    margin: 1em;
+    border-radius: .2em;
+    transition: .6s;
+}
+
+/* for javascript */
+.albumCovers .album-expand{
+    max-width: 25em;
+    margin: 1em;
+    display: block;
+}
+.albumCovers .album-shrink{
+    width: 0em;
+    margin: -1em;
+    display: none;
+}
+
+@media screen and (max-width : 1439px) {
+    .albumCovers{
+        max-width: 896px;
+    }    
+}
+
+@media screen and (max-width : 986px) {
+    .albumCovers{
+        align-items: center;
+        flex-direction: column;
+    }
+    .albumCover .albumCover{
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+    }
+}
+@media screen and (max-width : 600px) {
+    .buttons button{
+        width: 100%;
+        display: block;
+    }
+    .albumCovers{
+        margin-right: 1em;
+    }
+    .albumCovers .album-expand,
+    .albumCovers .albumCover{
+        width: 100%;
+    }    
+}
+ /* Projects popup */
+
+ 
+.popup{
+    position: fixed;
+    margin-top: 50px;
+    height: 620px;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 1280px;
+    max-width: 100%;
+    padding: 50px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, .30);
+    background: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+    z-index: 1000;
+  }
+  .popup.active{
+    margin-top: 50px;
+    top: 40%;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+    width: 1280px;
+    max-width: 100%;
+    overflow-y: scroll;
+  }
+  .popup .content{
+    text-align: center;
+    padding: 15px;
+  }
+  .popup .content h2{
+    margin: 0;
+    padding: 0;
+    font-size: 40px;
+    text-decoration: none;
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+  .popup .content h3{
+    margin: 0;
+    padding: 0;
+    font-size: 30px;
+    text-decoration: underline;
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+  .popup .content p{
+    margin: 10px 0 0;
+    padding: 0;
+  }
+  .albumimages{
+    width: 1280px;
+    max-width: 100%;
+    margin: 20px auto 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    transition: 0.5s;
+  
+  }
+  .albumimages .box{
+    position: relative;
+    width: 250px;
+    height: 250px;
+    /* background: #ff0; */
+    margin: 10px;
+    box-sizing: border-box;
+    display: inline-block;
+  }
+  .albumimages .box .thumbnail{
+    position: relative;
+    overflow: hidden;
+  }
+  .albumimages .box .thumbnail img{
+    max-width: 100%;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 2s;
+  }
+  .albumimages .box:hover .thumbnail img{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    transform: scale(1.2);
+  }
+  .popup .fa.fa-times{
+    position: sticky;
+    top: 0;
+    right: 0;
+    padding: 0 5px;
+    color: #000;
+    margin-left: 100%;
+    font-size: 24px;
+    color: red;
+  }
+  .popup .fa.fa-times:hover{
+    color: red;
+    cursor: pointer;
+  }
+
+  /* end popup styles */
